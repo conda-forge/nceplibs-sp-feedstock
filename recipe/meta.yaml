@@ -23,6 +23,8 @@ requirements:
   host:
     - llvm-openmp
     - m2w64-gcc-fortran           # [win]
+  run:
+    - m2w64-gcc-fortran           # [win]
 
 test:
   commands:

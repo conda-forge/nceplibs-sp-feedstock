@@ -24,7 +24,8 @@ requirements:
     - llvm-openmp
     - m2w64-gcc-fortran           # [win]
   run:
-    - m2w64-gcc-fortran           # [win]
+    - m2w64-gcc-libgfortran       # [win]
+    - m2w64-gcc-libs              # [win]
 
 test:
   commands:

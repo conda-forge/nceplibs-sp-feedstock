@@ -10,12 +10,12 @@ source:
   sha256: aec475ccb5ccf7c5a758dfb699626f2be78a22729a9d8d5e0a286db6a3213a51
 
 build:
-  skip: true  # [win]
   number: 0
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}   # [not win]
+    - m2w64-gcc-fortran           # [win]
     - cmake
     - pkg-config >=0.21
     - make                  # [not win]
@@ -25,7 +25,9 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libsp_4${SHLIB_EXT} -o -f ${PREFIX}/lib/libsp_d${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libsp_4${SHLIB_EXT} -a -f ${PREFIX}/lib/libsp_d${SHLIB_EXT}  # [not win]
+    - if not exist %LIBRARY_BIN%\\libsp_4.dll exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\libsp_d.dll exit 1  # [win]
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-sp

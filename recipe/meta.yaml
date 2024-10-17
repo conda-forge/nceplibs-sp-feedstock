@@ -14,19 +14,15 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}   # [not win]
-    - {{ stdlib("c") }}     # [not win]
-    - m2w64-gcc-fortran           # [win]
+    - {{ stdlib("c") }}
+    - {{ compiler("fortran") }}
     - cmake
     - pkg-config >=0.21
     - make                  # [not win]
     - ninja                 # [win]
   host:
     - llvm-openmp
-    - m2w64-gcc-fortran           # [win]
-  run:
-    - m2w64-gcc-libgfortran       # [win]
-    - m2w64-gcc-libs              # [win]
+  run:  # intentionally empty
 
 test:
   commands:

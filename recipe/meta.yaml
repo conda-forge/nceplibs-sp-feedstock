@@ -16,7 +16,7 @@ requirements:
   build:
     - {{ stdlib("c") }}
     - {{ compiler("fortran") }}
-    - cmake
+    - cmake >=3.12
     - pkg-config >=0.21
     - make                  # [not win]
     - ninja                 # [win]

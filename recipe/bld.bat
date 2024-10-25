@@ -1,3 +1,5 @@
+@echo on
+SetLocal EnableDelayedExpansion
 
 mkdir build
 cd build
@@ -16,6 +18,9 @@ cmake -G"Ninja" ^
       -DBUILD_4=ON ^
       -DBUILD_8=ON ^
       -DOPENMP=ON ^
+      -DOpenMP_ROOT=%LIBRARY_LIB% ^
+      -DOpenMP_Fortran_FLAGS=-fopenmp ^
+      -DOpenMP_Fortran_LIB_NAMES=libomp ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 

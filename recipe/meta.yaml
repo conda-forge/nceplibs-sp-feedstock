@@ -10,11 +10,11 @@ source:
   sha256: aec475ccb5ccf7c5a758dfb699626f2be78a22729a9d8d5e0a286db6a3213a51
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
-    - {{ compiler('fortran') }}   # [not win]
+    - {{ compiler("fortran") }}
     - {{ stdlib("c") }}     # [not win]
     - m2w64-gcc-fortran           # [win]
     - cmake
@@ -25,7 +25,6 @@ requirements:
     - llvm-openmp
     - m2w64-gcc-fortran           # [win]
   run:
-    - m2w64-gcc-libgfortran       # [win]
     - m2w64-gcc-libs              # [win]
 
 test:
